@@ -8,8 +8,8 @@ pipeline {
     environment {
         AWS_DEFAULT_REGION = 'us-east-1'
         ECR_REPO = '576607007321.dkr.ecr.us-east-1.amazonaws.com/gitops-gp-ecr'
-        IMAGE_TAG = "nodejsapp:${env.BUILD_NUMBER}"
-        IMAGE_NAME = "$ECR_REPO-$IMAGE_TAG"
+        IMAGE_TAG = "nodejsapp-${env.BUILD_NUMBER}"
+        IMAGE_NAME = "$ECR_REPO:$IMAGE_TAG"
     }
 
     stages {
