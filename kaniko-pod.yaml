@@ -16,5 +16,4 @@ spec:
         mountPath: /kaniko/cache
   volumes:
   - name: kaniko-cache
-    persistentVolumeClaim:
-      claimName: kaniko-cache-pvc
+    emptyDir: {}
