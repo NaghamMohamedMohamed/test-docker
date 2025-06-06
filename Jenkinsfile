@@ -18,6 +18,14 @@ pipeline {
             }
         }
 
+        stage('๐งน Clean Workspace') {
+    steps {
+        echo "๐งน Sweeping the workspace clean..."
+        cleanWs()
+        echo "โ… Workspace is spotless!"
+    }
+}
+
         stage('Clone NodeJS App Repo') {
             steps {
                 echo "🔄 Cloning NodeJS application repository..."
