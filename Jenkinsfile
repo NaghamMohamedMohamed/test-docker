@@ -49,14 +49,13 @@ pipeline {
                 }
             }
         }
-    
-        post {
-            failure {
-                echo "❌ Pipeline failed. Check above logs for details."
-            }
-            success {
+    }
+    post {
+       failure {
+            echo "❌ Pipeline failed. Check above logs for details."
+           }
+         success {
                 echo "🎉 Pipeline completed successfully!"
-            }
         }
     }
 }
