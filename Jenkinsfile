@@ -58,7 +58,6 @@ pipeline {
                       --cache-repo=576607007321.dkr.ecr.us-east-1.amazonaws.com/gitops-gp-ecr \\
                       --cache-dir=/kaniko/cache \\
                       --skip-tls-verify=false \\
-                      --push \\
                     """
                 }
                 echo "✅ Docker image pushed: $IMAGE_NAME"
