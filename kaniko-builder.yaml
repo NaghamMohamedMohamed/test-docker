@@ -1,18 +1,41 @@
+# apiVersion: v1
+# kind: Pod
+# spec:
+#   containers:
+#   - name: kaniko
+#     image: gcr.io/kaniko-project/executor:latest
+#     command: ["/bin/sh"]
+#     args: ["-c", "tail -f /dev/null"]
+#     volumeMounts:
+#     - name: jenkins-docker-cfg
+#       mountPath: /kaniko/.docker
+#   volumes:
+#   - name: jenkins-docker-cfg
+#     secret:
+#       secretName: docker-credentials
+#       items:
+#       - key: .dockerconfigjson
+#         path: config.json
+
 apiVersion: v1
 kind: Pod
 spec:
   containers:
   - name: kaniko
-    image: gcr.io/kaniko-project/executor:latest
-    command: ["/bin/sh"]
-    args: ["-c", "tail -f /dev/null"]
+    image: gcr.io/kaniko-project/executor:debug
+    imagePullPolicy: Always
+    command:
+    - /kaniko/executor
+    args:
+    - "--dockerfile=Dockerfile"
+    - "--context=git://github.com/NaghamMohamedMohamed/test-docker.git"
+    - "--destination=576607007321.dkr.ecr.us-east-1.amazonaws.com/test-docker:latest"
+    - "--insecure"
+    - "--skip-tls-verify"
     volumeMounts:
-    - name: jenkins-docker-cfg
+    - name: docker-config
       mountPath: /kaniko/.docker
   volumes:
-  - name: jenkins-docker-cfg
+  - name: docker-config
     secret:
       secretName: docker-credentials
-      items:
-      - key: .dockerconfigjson
-        path: config.json
