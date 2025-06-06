@@ -39,4 +39,4 @@ spec:
   volumes:
   - name: docker-config
     secret:
-      secretName: docker-credentials
+      secretName: new-docker-credentials
