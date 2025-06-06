@@ -11,20 +11,13 @@ pipeline {
         IMAGE_NAME = "$ECR_REPO:$IMAGE_TAG"
     }
 
-    stages {
-        stage('Workspace Cleanup') {
-            steps {
-                cleanWs()
-            }
+    stage('🧹 Clean Workspace') {
+        steps {
+            echo "🧹 Sweeping the workspace clean..."
+            cleanWs()
+            echo "✅ Workspace is spotless!"
         }
-
-        stage('๐งน Clean Workspace') {
-    steps {
-        echo "๐งน Sweeping the workspace clean..."
-        cleanWs()
-        echo "โ… Workspace is spotless!"
     }
-}
 
         stage('Clone NodeJS App Repo') {
             steps {
