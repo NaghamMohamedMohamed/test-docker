@@ -4,10 +4,8 @@ spec:
   containers:
   - name: kaniko
     image: gcr.io/kaniko-project/executor:latest
-    command:
-    - sleep
-    args:
-    - "9999999"
+    command: ["/busybox/sh"]
+    args: ["-c", "tail -f /dev/null"]
     volumeMounts:
     - name: jenkins-docker-cfg
       mountPath: /kaniko/.docker
