@@ -32,6 +32,7 @@ spec:
     - "--destination=576607007321.dkr.ecr.us-east-1.amazonaws.com/gitops-gp-ecr:testdockerlatest"
     - "--insecure"
     - "--skip-tls-verify"
+    - "--verbosity=debug"
     volumeMounts:
     - name: docker-config
       mountPath: /kaniko/.docker
