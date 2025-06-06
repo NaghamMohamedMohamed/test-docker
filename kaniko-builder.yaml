@@ -40,3 +40,6 @@ spec:
   - name: docker-config
     secret:
       secretName: new-docker-credentials
+      items:
+      - key: .dockerconfigjson
+        path: config.json
