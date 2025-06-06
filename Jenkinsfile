@@ -33,7 +33,7 @@ pipeline {
                       --oci-layout-path=/kaniko/oci-layout \\
                       --verbosity=debug \\
                       --cache=true \\
-                      --cache-repo=576607007321.dkr.ecr.us-east-1.amazonaws.com/gitops-gp-ecr
+                      --cache-repo=576607007321.dkr.ecr.us-east-1.amazonaws.com/gitops-gp-ecr \\
                       --cache-dir=/kaniko/cache \\
                       --skip-tls-verify=false \\
                       --no-push \\
@@ -55,7 +55,7 @@ pipeline {
                       --oci-layout-path=/kaniko/oci-layout \\
                       --verbosity=debug \\
                       --cache=true \\
-                      --cache-repo=576607007321.dkr.ecr.us-east-1.amazonaws.com/gitops-gp-ecr
+                      --cache-repo=576607007321.dkr.ecr.us-east-1.amazonaws.com/gitops-gp-ecr \\
                       --cache-dir=/kaniko/cache \\
                       --skip-tls-verify=false \\
                       --push \\
