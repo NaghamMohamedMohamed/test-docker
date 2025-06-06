@@ -29,7 +29,7 @@ spec:
     args:
     - "--dockerfile=Dockerfile"
     - "--context=git://github.com/NaghamMohamedMohamed/test-docker.git"
-    - "--destination=576607007321.dkr.ecr.us-east-1.amazonaws.com/test-docker:latest"
+    - "--destination=576607007321.dkr.ecr.us-east-1.amazonaws.com/gitops-gp-ecr:testdockerlatest"
     - "--insecure"
     - "--skip-tls-verify"
     volumeMounts:
