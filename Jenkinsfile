@@ -54,7 +54,7 @@ pipeline {
                       --oci-layout-path=/kaniko/oci-layout \\
                       --verbosity=debug \\
                       --cache=true \\
-                      --cache-dir=/kaniko/cache \ \\
+                      --cache-dir=/kaniko/cache \\
                       --skip-tls-verify=false \\
                       --push \\
                     """
