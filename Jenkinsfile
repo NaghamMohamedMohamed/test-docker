@@ -13,7 +13,7 @@ pipeline {
             /kaniko/executor \
               --context `pwd` \
               --dockerfile `pwd`/Dockerfile \
-              --destination=576607007321.dkr.ecr.us-east-1.amazonaws.com/my-kaniko-image:latest \
+              --destination=576607007321.dkr.ecr.us-east-1.amazonaws.com/gitops-gp-ecr/my-kaniko-image:latest \
               --verbosity=info
           '''
         }
