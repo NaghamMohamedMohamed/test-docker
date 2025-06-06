@@ -21,32 +21,11 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Build & Push Docker Image') {
             steps {
                 container('kaniko') {
-                    echo "🔨 Building Docker image with Kaniko..."
-                    sh """
-                    /kaniko/executor \\
-                      --context=./jenkins_nodejs_example \\
-                      --dockerfile=./jenkins_nodejs_example/dockerfile \\
-                      --destination=$IMAGE_NAME \\
-                      --oci-layout-path=/kaniko/oci-layout \\
-                      --verbosity=debug \\
-                      --cache=true \\
-                      --cache-repo=576607007321.dkr.ecr.us-east-1.amazonaws.com/gitops-gp-ecr \\
-                      --cache-dir=/kaniko/cache \\
-                      --skip-tls-verify=false \\
-                      --no-push \\
-                    """
-                }
-                echo "✅ Docker image build complete (not pushed)"
-            }
-        }
+                    echo "🔨 Building Docker image with Kaniko... & 🚀 Pushing Docker image to ECR..."
 
-        stage('Push Docker Image') {
-            steps {
-                container('kaniko') {
-                    echo "🚀 Pushing Docker image to ECR..."
                     sh """
                     /kaniko/executor \\
                       --context=./jenkins_nodejs_example \\
@@ -60,7 +39,7 @@ pipeline {
                       --skip-tls-verify=false \\
                     """
                 }
-                echo "✅ Docker image pushed: $IMAGE_NAME"
+                echo "✅ Docker image build complete & pushed : $IMAGE_NAME"
             }
         }
     }
