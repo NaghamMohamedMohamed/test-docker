@@ -4,7 +4,6 @@ pipeline {
             yamlFile 'kaniko-pod.yaml'
         }
     }
-
     environment {
         AWS_DEFAULT_REGION = 'us-east-1'
         ECR_REPO = '576607007321.dkr.ecr.us-east-1.amazonaws.com/gitops-gp-ecr'
@@ -13,6 +12,12 @@ pipeline {
     }
 
     stages {
+        stage('Workspace Cleanup') {
+            steps {
+                cleanWs()
+            }
+        }
+
         stage('Clone NodeJS App Repo') {
             steps {
                 echo "🔄 Cloning NodeJS application repository..."
